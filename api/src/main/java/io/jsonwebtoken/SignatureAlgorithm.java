@@ -40,73 +40,73 @@ public enum SignatureAlgorithm {
     /**
      * JWA name for {@code No digital signature or MAC performed}
      */
-    NONE("none", "No digital signature or MAC performed", "None", null, false, 0, 0),
+    NONE("none", "No digital signature or MAC performed", "None", null, null, false, 0, 0),
 
     /**
      * JWA algorithm name for {@code HMAC using SHA-256}
      */
-    HS256("HS256", "HMAC using SHA-256", "HMAC", "HmacSHA256", true, 256, 256),
+    HS256("HS256", "HMAC using SHA-256", "HMAC", "HmacSHA256", "1.2.840.113549.2.9", true, 256, 256),
 
     /**
      * JWA algorithm name for {@code HMAC using SHA-384}
      */
-    HS384("HS384", "HMAC using SHA-384", "HMAC", "HmacSHA384", true, 384, 384),
+    HS384("HS384", "HMAC using SHA-384", "HMAC", "HmacSHA384", "1.2.840.113549.2.10", true, 384, 384),
 
     /**
      * JWA algorithm name for {@code HMAC using SHA-512}
      */
-    HS512("HS512", "HMAC using SHA-512", "HMAC", "HmacSHA512", true, 512, 512),
+    HS512("HS512", "HMAC using SHA-512", "HMAC", "HmacSHA512", "1.2.840.113549.2.11", true, 512, 512),
 
     /**
      * JWA algorithm name for {@code RSASSA-PKCS-v1_5 using SHA-256}
      */
-    RS256("RS256", "RSASSA-PKCS-v1_5 using SHA-256", "RSA", "SHA256withRSA", true, 256, 2048),
+    RS256("RS256", "RSASSA-PKCS-v1_5 using SHA-256", "RSA", "SHA256withRSA", "1.2.840.113549.1.1.11", true, 256, 2048),
 
     /**
      * JWA algorithm name for {@code RSASSA-PKCS-v1_5 using SHA-384}
      */
-    RS384("RS384", "RSASSA-PKCS-v1_5 using SHA-384", "RSA", "SHA384withRSA", true, 384, 2048),
+    RS384("RS384", "RSASSA-PKCS-v1_5 using SHA-384", "RSA", "SHA384withRSA", "1.2.840.113549.1.1.12", true, 384, 2048),
 
     /**
      * JWA algorithm name for {@code RSASSA-PKCS-v1_5 using SHA-512}
      */
-    RS512("RS512", "RSASSA-PKCS-v1_5 using SHA-512", "RSA", "SHA512withRSA", true, 512, 2048),
+    RS512("RS512", "RSASSA-PKCS-v1_5 using SHA-512", "RSA", "SHA512withRSA", "1.2.840.113549.1.1.13", true, 512, 2048),
 
     /**
      * JWA algorithm name for {@code ECDSA using P-256 and SHA-256}
      */
-    ES256("ES256", "ECDSA using P-256 and SHA-256", "ECDSA", "SHA256withECDSA", true, 256, 256),
+    ES256("ES256", "ECDSA using P-256 and SHA-256", "ECDSA", "SHA256withECDSA", "1.2.840.10045.4.3.2", true, 256, 256),
 
     /**
      * JWA algorithm name for {@code ECDSA using P-384 and SHA-384}
      */
-    ES384("ES384", "ECDSA using P-384 and SHA-384", "ECDSA", "SHA384withECDSA", true, 384, 384),
+    ES384("ES384", "ECDSA using P-384 and SHA-384", "ECDSA", "SHA384withECDSA", "1.2.840.10045.4.3.3", true, 384, 384),
 
     /**
      * JWA algorithm name for {@code ECDSA using P-521 and SHA-512}
      */
-    ES512("ES512", "ECDSA using P-521 and SHA-512", "ECDSA", "SHA512withECDSA", true, 512, 521),
+    ES512("ES512", "ECDSA using P-521 and SHA-512", "ECDSA", "SHA512withECDSA", "1.2.840.10045.4.3.4", true, 512, 521),
 
     /**
      * JWA algorithm name for {@code RSASSA-PSS using SHA-256 and MGF1 with SHA-256}.  <b>This is not a JDK standard
      * algorithm and requires that a JCA provider like BouncyCastle be in the runtime classpath.</b>  BouncyCastle
      * will be used automatically if found in the runtime classpath.
      */
-    PS256("PS256", "RSASSA-PSS using SHA-256 and MGF1 with SHA-256", "RSA", "SHA256withRSAandMGF1", false, 256, 2048),
+    PS256("PS256", "RSASSA-PSS using SHA-256 and MGF1 with SHA-256", "RSA", "SHA256withRSAandMGF1", null, false, 256, 2048),
 
     /**
      * JWA algorithm name for {@code RSASSA-PSS using SHA-384 and MGF1 with SHA-384}.  <b>This is not a JDK standard
      * algorithm and requires that a JCA provider like BouncyCastle be in the runtime classpath.</b>  BouncyCastle
      * will be used automatically if found in the runtime classpath.
      */
-    PS384("PS384", "RSASSA-PSS using SHA-384 and MGF1 with SHA-384", "RSA", "SHA384withRSAandMGF1", false, 384, 2048),
+    PS384("PS384", "RSASSA-PSS using SHA-384 and MGF1 with SHA-384", "RSA", "SHA384withRSAandMGF1", null, false, 384, 2048),
 
     /**
      * JWA algorithm name for {@code RSASSA-PSS using SHA-512 and MGF1 with SHA-512}. <b>This is not a JDK standard
      * algorithm and requires that a JCA provider like BouncyCastle be in the classpath.</b>  BouncyCastle will be used
      * automatically if found in the runtime classpath.
      */
-    PS512("PS512", "RSASSA-PSS using SHA-512 and MGF1 with SHA-512", "RSA", "SHA512withRSAandMGF1", false, 512, 2048);
+    PS512("PS512", "RSASSA-PSS using SHA-512 and MGF1 with SHA-512", "RSA", "SHA512withRSAandMGF1", null, false, 512, 2048);
 
     //purposefully ordered higher to lower:
     private static final List<SignatureAlgorithm> PREFERRED_HMAC_ALGS = Collections.unmodifiableList(Arrays.asList(
@@ -119,16 +119,18 @@ public enum SignatureAlgorithm {
     private final String description;
     private final String familyName;
     private final String jcaName;
+    private final String oid;
     private final boolean jdkStandard;
     private final int digestLength;
     private final int minKeyLength;
 
-    SignatureAlgorithm(String value, String description, String familyName, String jcaName, boolean jdkStandard,
+    SignatureAlgorithm(String value, String description, String familyName, String jcaName, String oid, boolean jdkStandard,
                        int digestLength, int minKeyLength) {
         this.value = value;
         this.description = description;
         this.familyName = familyName;
         this.jcaName = jcaName;
+        this.oid = oid;
         this.jdkStandard = jdkStandard;
         this.digestLength = digestLength;
         this.minKeyLength = minKeyLength;
@@ -353,7 +355,10 @@ public enum SignatureAlgorithm {
             // These next checks use equalsIgnoreCase per https://github.com/jwtk/jjwt/issues/381#issuecomment-412912272
             if (!HS256.jcaName.equalsIgnoreCase(alg) &&
                 !HS384.jcaName.equalsIgnoreCase(alg) &&
-                !HS512.jcaName.equalsIgnoreCase(alg)) {
+                !HS512.jcaName.equalsIgnoreCase(alg) &&
+                !HS256.oid.equalsIgnoreCase(alg) &&
+                !HS384.oid.equalsIgnoreCase(alg) &&
+                !HS512.oid.equalsIgnoreCase(alg)) {
                 throw new InvalidKeyException("The " + keyType(signing) + " key's algorithm '" + alg +
                     "' does not equal a valid HmacSHA* algorithm name and cannot be used with " + name() + ".");
             }
